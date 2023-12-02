@@ -40,6 +40,17 @@
 > [!NOTE]
 > La configuración de `@VPPAdminTools` esta en otro tutorial (PROXIMAMENTE).
 
+### Ahora vamos a ir a `IniciarServer.bat`, Clic derecho y le damos a `Editar`. Cuando nos abra el editor, vamos a buscar la linea de `"-mod="`. Una vez la encontremos tenemos que añadir el nombre de la carpeta del mod. EJ:
+```
+"-mod=@CF"
+```
+> [!TIP]
+> En el caso de tener una dependencia o querer añadir mas mods debería ser: `"-mod=@CF;@VPPAdminTools"`. Es muy importante respetar los ";" y los Framework añadirlos siempre de los primeros para que carguen antes y no haya ningun problema.
+
+### Guardamos y abrimos el server desde el launcher `IniciarServer.bat`
+
+
+
 
 --
 -
