@@ -1,122 +1,49 @@
 # ⬇️COMO AÑADIR UN MOD A NUESTRO SERVER⬇️
 
--
+> [!WARNING]
+> ¡Antes de hacer este tutorial, recuerda que tienes que hacer [este](https://github.com/MrPotrex/Tutoriales-DayZ-Server/tree/main/Servidor/1-Crear%20un%20server).
 
--
--
+### Nos vamos a dirigir al [Workshop](https://steamcommunity.com/app/221100/workshop/) de DayZ y vamos a buscar un mod. (Yo voy a instalar el [VppAdmin](https://steamcommunity.com/sharedfiles/filedetails/?id=1828439124&searchtext=vppadmin))
 
+* Una vez hayamos encontrado el mod que queremos, tenemos que tener en cuenta 2 cosas. 
+### Tenemos que suscribirnos al mod y ver que no necesite dependencias. (En mi caso mi dependencia es el [@CF](https://steamcommunity.com/workshop/filedetails/?id=1559212036))
 
--
+![foto](https://media.discordapp.net/attachments/973516122349531136/1180545796270206987/image.png?ex=657dcff3&is=656b5af3&hm=dd0b209e938e7f490903c98603c5ae3cf55a6f109c5a7af29361a09526950499&=&format=webp&quality=lossless&width=866&height=123)
 
+## Ahora vamos a los archivos del juego base.
 
--
--
-
---
-
-
-
-
-Lo primero que tenemos que hacer es ir directamente a
-### Steam ➡️ Biblioteca ➡️ Buscador ➡️ DayZ ➡️ Descargamos DayZ Server y Tools.
-
-![Foto](https://media.discordapp.net/attachments/973516122349531136/1180486080026382386/image.png?ex=657d9855&is=656b2355&hm=2f1a49b17896cb6b871acafcf94312a0e98d7de9f1ec0c874b7be85dabada77c&=&format=webp&quality=lossless&width=245&height=242)
-> [!IMPORTANT]
-> Descargar tambien el juego base.
-
-### Descargado DayZ Server, vamos a ir a la Tuerca ➡️ Administrar ➡️ Ver archivos locales.
+### DayZ ➡️ Tuerca ➡️ Administrar ➡️ Ver archivos locales.
 ![Foto](https://cdn.discordapp.com/attachments/973516122349531136/1180488476832047225/image.png?ex=657d9a91&is=656b2591&hm=f77277c640c11b394283963ce8b156e59c78ecbf6cd65f63aab0dcd0f7600c02&)
 
-### Cuando estemos en la Carpeta DayZServer buscamos el archivo llamado `serverDZ.cfg` y lo abrimos con nuestro editor (Preferiblemente Visual Studio).
+> [!TIP]
+> Activa la opción de ver las carpetas ocultas 👁️.
 
-<details>
-  <summary><h1>⬇️Configuración de serverDZ.cfg⬇️</h1></summary>
-  
-### En el archivo nos centraremos ahora mismo en:
+### En la barra, al lado del buscador le damos a  Steamapps ➡️ common ➡️ DayZ ➡️!Workshop.
 
-```
-hostname = "";  // Server name
-passwordAdmin = "";         // Password to become a server admin
-maxPlayers = 1;            // Maximum amount of players
-```
-En `hostname =` Metemos el nombre que queremos que salga en el Launcher. ej:
-```
-hostname = "Prueba Mancotrex";
-```
-En `passwordAdmin =` la contraseña de admin que tendremos. ej:
-```
-passwordAdmin = "1234";
-```
-En `maxPlayers =` Metemos el numero de jugadores que aguanta el servidor (Al ser local, lo mejor es poner 1 o 2).
+![Foto](https://media.discordapp.net/attachments/973516122349531136/1180544473156034620/image.png?ex=657dceb7&is=656b59b7&hm=2cd1589675c7e053d9503dc2de35c762d01c59de356f28ff0f697d5a3b8f70fa&=&format=webp&quality=lossless&width=1009&height=80)
 
-Guardamos y listo, lo tendríamos configurado levemente.
-</details>
+### Buscamos las carpetas del mod en `!Workshop`. (En mi caso son `@CF` & `@VPPAdminTools`) Cuando la hayamos encontrado hacemos `Cntrol + C` en la carpeta y vamos a la carpeta del server `DayZServer`, allí hacemos `Cntrol + V` y pegamos la carpeta del mod (@CF) en la carpeta raiz del server.
 
-### Una vez configurado el archivo `serverDZ.cfg` Añadimos el Launcher que tenemos arriba o creamos directamente un bloc de notas.
-<details>
-  <summary><h1>⬇️Creación del bloc de notas⬇️</h1></summary>
+![Foto](https://media.discordapp.net/attachments/973516122349531136/1180548810758438952/image.png?ex=657dd2c2&is=656b5dc2&hm=6cb5af70bac2c94a4f9fc56f47d80b02391f8fb90f0d5900f46b711c96ad94e2&=&format=webp&quality=lossless&width=562&height=256)
 
-⬇️Añadimos al bloc de notas este codigo⬇️
-```
-@echo off
-:start
-::Server name 
-set serverName=Modificar
-::Server files location (Viene por defecto, pero si os falla teneís que buscar donde habeís puesto el server)
-set serverLocation="C:\Program Files (x86)\Steam\steamapps\common\DayZServer"
-::Server Port
-set serverPort=2302
-::Server config
-set serverConfig=serverDZ.cfg
-::Logical CPU cores to use (Equal or less than available)
-set serverCPU=2
-::Sets title for terminal (DONT edit)
-title %serverName% batch
-::DayZServer location (DONT edit)
-cd "%serverLocation%"
-echo (%time%) %serverName% started.
-::Launch parameters (edit end: -config=|-port=|-profiles=|-doLogs|-adminLog|-netLog|-freezeCheck|-filePatching|-BEpath=|-cpuCount=|Añadir los mods por parte del server en -servermod y los demas en -mod)
-start "DayZ Server" /min "DayZServer_x64.exe" -config=%serverConfig% -port=%serverPort% -cpuCount=%serverCPU% -profiles=modificarnombre -dologs -adminlog -netlog -freezecheck "-servermod=""-mod="
-::Time in seconds before kill server process (14400 = 4 hours)
-timeout 14390
-taskkill /im DayZServer_x64.exe /F
-::Time in seconds to wait before..
-timeout 10
-::Go back to the top and repeat the whole cycle again
-goto start
-```
-### Aquí priorizamos las siguientes lineas
-```
-- set serverName=Modificar
-- set serverLocation="C:\Program Files (x86)\Steam\steamapps\common\DayZServer"
-- "-servermod="
-- "-mod="
-```
-* `serverName` es para el nombre del server. Ej
-```
-set serverName=Mancotrex Server
-```
-* `serverLocation` es donde esta el servidor. por defecto: (Modificar en caso de cambiar la ruta)
-```
-set serverLocation="C:\Program Files (x86)\Steam\steamapps\common\DayZServer"
-```
-* `-servermod=` es para los mods que solo necesitan acceso por parte del servidor. (Lo explicare mas adelante)
-* `-mod=` es para los mods que solo necesitan acceso por parte del cliente. (Lo explicare mas adelante)
+> [!TIP]
+> Si le das clic derecho a la carpeta y le das donde dice `Abrir en una nueva pestaña` te será mas facil mover las keys.
 
-### Guardamos el archivo y modificamos su nombre a IniciarServer.bat (Tiene que cambiarte el icono) y lo añadimos a la carpeta de DayZServer.
-![Foto](https://media.discordapp.net/attachments/973516122349531136/1180495679135694908/image.png?ex=657da146&is=656b2c46&hm=80e576d4faf540c99297059e15ef8afe3b3fcfc8cb246135c344ee52999826ec&=&format=webp&quality=lossless&width=560&height=140)
-</details>
+### Entramos en la carpeta del mod y nos encontraremos estas carpetas
 
-> [!IMPORTANT]
-> ⬆️ Si te has descargado el .bat de arriba, no hace falta leer eso ⬆️.
+![Foto](https://media.discordapp.net/attachments/973516122349531136/1180549473005490307/image.png?ex=657dd35f&is=656b5e5f&hm=a3235f58a1f612098192e214f39660389ef21291dd577926299be04c7587d29a&=&format=webp&quality=lossless&width=557&height=107)
 
-### Arrancamos el IniciarServer.bat y nos saldrán 2 consolas.
-![Foto](https://media.discordapp.net/attachments/973516122349531136/1180498486685335644/image.png?ex=657da3e3&is=656b2ee3&hm=0a54d63b27e6c81e2a57a6c32d8e800fb3ba3e5f6ceefb7b05f7fcd8e20f0827&=&format=webp&quality=lossless&width=529&height=285)
+### Vamos a entrar en la carpeta `Keys` y vamos a copiar el archivo `nombre.bikey`. Despues vamos a la carpeta raiz del server `DayZServer` y buscamos la carpeta `keys`. pegamos el archivo y nos tendría que quedar así
+
+![Foto](https://media.discordapp.net/attachments/973516122349531136/1180550269038235749/image.png?ex=657dd41d&is=656b5f1d&hm=556545d7ce0690285abe8795e9dd7925d0abc0984cf17af9063fc9146057f9ab&=&format=webp&quality=lossless&width=560&height=235)
 
 > [!NOTE]
-> La consola mas importante es la DayZ Console Version. El otro si quieren lo pueden cerrar. 
+> La configuración de `@VPPAdminTools` esta en otro tutorial (PROXIMAMENTE).
 
-### Arrancamos DayZ ➡️ Servidores ➡️ Local y tendría que salir nuestro servidor.
-![Foto](https://media.discordapp.net/attachments/973516122349531136/1180499946672234536/image.png?ex=657da53f&is=656b303f&hm=ef9900ac235b52379162879f4092c514cce0f0d940dc0c77074b4f0934783f73&=&format=webp&quality=lossless&width=1324&height=313)
 
-### Y listo, ya tendríamos nuestro servidor vanilla listo.
+--
+-
+--
+-
+--
+
