@@ -48,13 +48,26 @@
 > En el caso de tener una dependencia o querer añadir mas mods debería ser: `"-mod=@CF;@VPPAdminTools"`. Es muy importante respetar los ";" y los Framework añadirlos siempre de los primeros para que carguen antes y no haya ningun problema.
 
 ### Guardamos y abrimos el server desde el launcher `IniciarServer.bat`
+Si hemos hecho todo paso a paso nuestro servidor iniciará. Si no inicia o no nos deja entrar, leed bien las cosas, puede ser que necesite alguna dependencia o el mod sea privado.
 
+## Abrimos el juego y nos vamos a la opción de Servidores ➡️ Local y debería aparecer así
 
+![Foto](https://media.discordapp.net/attachments/973516122349531136/1180556060784853072/image.png?ex=657dd982&is=656b6482&hm=ab43e578be16485fc34501fd3a60a6c25506e127a697c10dd8add007ccb0285e&=&format=webp&quality=lossless&width=867&height=323)
 
+> [!NOTE]
+> Si los mods que añadas no te salen en verde es porque te has saltado algun paso o es del lado del servidor. (Este tutorial es para los mods que van al cliente. Los de server irán en otro tutorial o se añadirá proximamente)
 
---
--
---
--
---
+## Entramos a nuestro servidor y verificamos que el mod funcione perfectamente 😄. 
 
+### En caso de querer eliminar el mod, es solamente borrar la carpeta, la key de la carpeta `keys` y eliminarlo del `IniciarServer.bat`.
+
+### En caso de actualización, debes ir al juego, darle a la opción de mods, buscar el que se ha actualizado y darle a reparar antes de ir a la carpeta del mod. Así te ahorras el dolor de cabeza por si no funciona. 
+
+![Foto](https://media.discordapp.net/attachments/973516122349531136/1180558395368022026/image.png?ex=657ddbaf&is=656b66af&hm=c0e873fc68595b7e6833d3aca717b399da90f947dae3c46c7ff249965edfee7d&=&format=webp&quality=lossless&width=825&height=365)
+
+### Hacemos el mismo proceso con la carpeta, la copiamos desde `!Workshop` y la pegamos en la carpeta raiz del server y ya estaría "actualizado".
+
+> [!NOTE]
+> Si te sigue fallando puede ser que hayan tenido un problema con la actualización y lo esten arreglando o no hayas hecho bien todo el proceso.
+
+# Y listo, a disfrutar 😄. 
