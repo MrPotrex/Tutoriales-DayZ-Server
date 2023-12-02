@@ -12,7 +12,7 @@ Lo primero que tenemos que hacer es ir directamente a
 
 ### Una vez estemos en la carpeta DayZServer Añadimos el Launcher que tenemos arriba o creamos directamente un bloc de notas.
 <details>
-  <summary><h1>Bloc de notas</h1></summary>
+  <summary><h1>⬇️Creación del bloc de notas⬇️</h1></summary>
 
 ⬇️Añadimos al bloc de notas este codigo⬇️
 ```
@@ -64,3 +64,7 @@ set serverLocation="C:\Program Files (x86)\Steam\steamapps\common\DayZServer"
 ### Guardamos el archivo y modificamos su nombre a IniciarServer.bat (Tiene que cambiarte el icono) y lo añadimos a la carpeta de DayZServer.
 ![Foto](https://media.discordapp.net/attachments/973516122349531136/1180495679135694908/image.png?ex=657da146&is=656b2c46&hm=80e576d4faf540c99297059e15ef8afe3b3fcfc8cb246135c344ee52999826ec&=&format=webp&quality=lossless&width=560&height=140)
 </details>
+
+> [!IMPORTANT]
+> ⬆️ Si te has descargado el .bat de arriba, no hace falta leer eso ⬆️.
+
